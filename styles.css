@@ -1,0 +1,175 @@
+:root {
+  color-scheme: light;
+  --bg: #0f172a;
+  --panel: #111827;
+  --card: #1f2937;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #38bdf8;
+  --accent-2: #22c55e;
+  --danger: #f97316;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: radial-gradient(circle at top right, #1d4ed8 5%, var(--bg) 45%);
+  color: var(--text);
+}
+
+.app-shell {
+  width: min(1000px, 92vw);
+  margin: 2rem auto;
+  display: grid;
+  gap: 1.2rem;
+}
+
+header h1 {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.7rem, 2.8vw, 2.3rem);
+}
+
+header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.card,
+.policy-selector {
+  border: 1px solid #334155;
+  background: linear-gradient(145deg, #0b1220, var(--card));
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.toggle-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.toggle {
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: var(--text);
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+.toggle:hover {
+  transform: translateY(-1px);
+}
+
+.toggle.active {
+  background: linear-gradient(90deg, #0369a1, #2563eb);
+  border-color: #60a5fa;
+}
+
+.forms-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0.8rem 0;
+}
+
+label {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+input {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  background: #020617;
+  color: var(--text);
+  padding: 0.65rem;
+}
+
+input:focus {
+  outline: 2px solid color-mix(in oklab, var(--accent), white 20%);
+  outline-offset: 1px;
+}
+
+.hidden {
+  display: none;
+}
+
+.results {
+  text-align: center;
+}
+
+.result-number {
+  margin: 0.8rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-weight: 700;
+}
+
+.dollar {
+  font-size: 2rem;
+  padding-top: 0.3rem;
+}
+
+#savings-amount {
+  font-size: clamp(3rem, 8vw, 4.8rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 30px color-mix(in oklab, var(--accent-2), transparent 70%);
+}
+
+#result-copy {
+  margin: 0.2rem 0 1rem;
+  color: var(--muted);
+}
+
+.result-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  gap: 0.8rem;
+}
+
+.metric-label {
+  margin: 0;
+  color: var(--muted);
+}
+
+.result-metrics p:last-child {
+  margin: 0.25rem 0 0;
+  font-size: 1.1rem;
+}
+
+.positive #savings-amount {
+  color: var(--accent-2);
+}
+
+.negative #savings-amount {
+  color: var(--danger);
+}
+
+#confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}

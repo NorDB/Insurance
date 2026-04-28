@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insurance Savings Visualizer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header>
+      <h1>Insurance Savings Visualizer</h1>
+      <p>Compare your current policy costs with a new quote and instantly see potential yearly savings.</p>
+    </header>
+
+    <section class="policy-selector" aria-label="Policy Type Selector">
+      <h2>1) Select Policy Type</h2>
+      <div class="toggle-group" role="radiogroup" aria-label="Policy Types">
+        <button class="toggle active" data-policy="home" aria-pressed="true">Home</button>
+        <button class="toggle" data-policy="auto" aria-pressed="false">Auto</button>
+        <button class="toggle" data-policy="both" aria-pressed="false">Both</button>
+      </div>
+    </section>
+
+    <section class="forms-grid">
+      <form id="current-form" class="card" novalidate>
+        <h2>2) Current Policy</h2>
+        <div class="field home-field">
+          <label for="current-home">Current Home Premium (monthly)</label>
+          <input type="number" id="current-home" min="0" step="0.01" placeholder="e.g. 180" />
+        </div>
+        <div class="field auto-field">
+          <label for="current-auto">Current Auto Premium (monthly)</label>
+          <input type="number" id="current-auto" min="0" step="0.01" placeholder="e.g. 210" />
+        </div>
+      </form>
+
+      <form id="new-form" class="card" novalidate>
+        <h2>3) New Policy Quote</h2>
+        <div class="field home-field">
+          <label for="new-home">New Home Premium (monthly)</label>
+          <input type="number" id="new-home" min="0" step="0.01" placeholder="e.g. 145" />
+        </div>
+        <div class="field auto-field">
+          <label for="new-auto">New Auto Premium (monthly)</label>
+          <input type="number" id="new-auto" min="0" step="0.01" placeholder="e.g. 170" />
+        </div>
+      </form>
+    </section>
+
+    <section class="results card" aria-live="polite">
+      <h2>4) Your Savings Snapshot</h2>
+      <div class="result-number">
+        <span class="dollar">$</span>
+        <span id="savings-amount">0</span>
+      </div>
+      <p id="result-copy">Enter policy premiums to see your estimated annual savings.</p>
+      <div class="result-metrics">
+        <div>
+          <p class="metric-label">Current Annual</p>
+          <p id="current-annual">$0</p>
+        </div>
+        <div>
+          <p class="metric-label">New Annual</p>
+          <p id="new-annual">$0</p>
+        </div>
+      </div>
+      <canvas id="confetti" aria-hidden="true"></canvas>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
